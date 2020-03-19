@@ -45,7 +45,7 @@ Padrão da saída:
 
 <nome_do_hotel_mais_barato>
 
-Exemplos:
+**Exemplos:**
 
 
 
