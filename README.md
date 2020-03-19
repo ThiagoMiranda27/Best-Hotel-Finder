@@ -38,7 +38,7 @@ Dadas essas informações, desenvolva um sistema para buscar o hotel mais em con
 
 Padrão da entrada:
 
-<tipo_do_cliente>: <data1>, <data2>, <data3>, …
+<tipo_do_cliente>: < data1 >, < data2 >, < data3 >, …
 
  
 Padrão da saída:
