@@ -20,13 +20,13 @@ Por fim, o Hotel Continental possui uma classificação 5 e suas taxas de dia de
 
 
 
-`Hotel` | `Classificação` | `Dia de semana` | `Dia de semana reward` | `Fim de semana` | `Fim de semana reward` |
+`Hotel` | Classificação | `Dia de semana` | Dia de semana reward | Fim de semana | `Fim de semana reward` |
 ---
-Plaza | 3 | R$110 | R$80 | R$90 | R$80 |
+`Plaza` | 3 | `R$110` | R$80 | `R$90` | R$80 |
 ---
-Hilton | 4 | R$160 | R$110 | R$60 | R$50 |
+`Hilton` | 4 | `R$160` | R$110 | `R$60` | R$50 |
 ---
-Continenta | 5 | R$220 | R$100 | R$150 | R$40 |
+`Continenta` | 5 | `R$220` | R$100 | `R$150` | R$40 |
 ---
 
 
