@@ -20,7 +20,7 @@ Por fim, o Hotel Continental possui uma classificação 5 e suas taxas de dia de
 
 
 
-`Hotel` | Classificação | `Dia de semana` | Dia de semana reward | Fim de semana | `Fim de semana reward` |
+`Hotel` | Classificação | `Dia de semana` | Dia de semana reward | `Fim de semana` | Fim de semana reward |
 ---
 `Plaza` | 3 | `R$110` | R$80 | `R$90` | R$80 |
 ---
