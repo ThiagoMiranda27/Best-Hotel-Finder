@@ -1,41 +1,46 @@
 package reserva;
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Date;
-import java.util.Scanner;
+import java.text.ParseException;
 
-    public class InputTeclado {
+public class InputTeclado {
 
-        private final String ERROTIPOCLIENTE = "Tipo de cliente invalido";
+	public String input(String entrada, int tipoInput) throws ParseException {
 
-        public InputTeclado(){}
-
-        public void input() {
-
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Qual perfil de Cliente voce pertence? (Regular/Vip)");
-            String tipoCliente = scanner.next();
-            if( !tipoCliente.equalsIgnoreCase("Regular") ||
-                !tipoCliente.equalsIgnoreCase("Vip") ) {
-                System.out.println(ERROTIPOCLIENTE);
-            }
-
-            System.out.println("Quando voce iniciara a hospedagem? (DD/MM/YYYY)");
-            String dataInicio = scanner.next();
-
-            System.out.println("Quando voce finalizara a hospedagem? (DD/MM/YYYY)");
-            String dataFim = scanner.next();
-
-            GerenciadorDasDatas gerenciaDatasEscolhidas = new GerenciadorDasDatas();
-
-            Date datainicio = gerenciaDatasEscolhidas.stringParaDate(dataInicio);
-            Date dataFimHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataFim);
-
-            System.out.println("Voce ficara " + gerenciaDatasEscolhidas.pegarPeriodoAlocacao(datainicio, dataFimHospedagem).size() + " dias.");
-
-
-        }
-    }
+		System.out.print(entrada + " ");
+		
+		try {
+			BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+						
+			if (tipoInput == 0) {
+				String valor = bufferRead.readLine();
+				if (valor.equalsIgnoreCase("regular")) {
+					return TipoDeCliente.REGULAR.toString();
+				} else if (valor.equalsIgnoreCase("vip")) {
+					return TipoDeCliente.VIP.toString();
+				}
+				else
+				{
+					throw new IllegalArgumentException("O Tipo de Cliente tem que ser Regular ou Vip");
+					
+				}
+			}
+			if (tipoInput == 1) {
+				String dataLida = bufferRead.readLine();
+				if (dataLida.matches("^([0-2][0-9]|(3)[0-1])(/)(((0)[0-9])|((1)[0-2]))(/)\\d{4}$")) {
+					return dataLida;
+				}
+				else
+				{
+					throw new IllegalArgumentException("Data no formato incorreto");
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+}

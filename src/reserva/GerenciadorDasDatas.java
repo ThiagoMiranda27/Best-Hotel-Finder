@@ -17,7 +17,7 @@ public class GerenciadorDasDatas {
 			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(formato);
 			return date;
 		} catch (ParseException e) {
-			System.out.println("Data nao permitida");
+			e.printStackTrace();
 		}
 		
 		return null;
