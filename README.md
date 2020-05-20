@@ -26,7 +26,7 @@ Por fim, o Hotel Continental possui uma classificação 5 e suas taxas de dia de
 ---
 `Hilton` | 4 | `R$160` | R$110 | `R$60` | R$50 |
 ---
-`Continenta` | 5 | `R$220` | R$100 | `R$150` | R$40 |
+`Continental` | 5 | `R$220` | R$100 | `R$150` | R$40 |
 ---
 
 
