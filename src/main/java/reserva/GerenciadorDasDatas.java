@@ -14,14 +14,18 @@ public class GerenciadorDasDatas {
 
 	public Date stringParaDate(String formato){
 
-		try {
-			Date date = new SimpleDateFormat(datePattern).parse(formato);
-			return date;
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		
-		return null;
+		public SimpleDateFormat stringParaDate(String formato){
+
+			try{
+				SimpleDateFormat d = new SimpleDateFormat(datePattern);
+				d.setLenient(false);
+				d.parse(formato);
+				return d;
+
+			}catch (Exception e){
+				System.out.println("Data nao permitida");
+			}
+			return null;
 	}
 	
 	public boolean fimDeSemana (Date date) {
