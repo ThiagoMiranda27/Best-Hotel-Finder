@@ -1,5 +1,6 @@
 package reserva;
 
+import org.graalvm.compiler.hotspot.phases.profiling.FinalizeProfileNodesPhase;
 import reserva.InputTeclado;
 
 import java.util.Date;
@@ -8,11 +9,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+        InputTeclado inputTeclado = new InputTeclado();
 
-        String tipoCliente = InputTeclado.validaPerfilCliente("Qual perfil de Cliente voce pertence? (Regular/Vip) ");
-        String dataInicio = InputTeclado.validaPadraoData("Quando voce iniciara a hospedagem? (DD/MM/YYYY) ");
-        String dataFim = InputTeclado.validaPadraoData("Quando voce finalizara a hospedagem? (DD/MM/YYYY) ");
-        InputTeclado.comparaDatas(dataInicio, dataFim);
+        String tipoCliente = inputTeclado.validaPerfilCliente("Qual perfil de Cliente voce pertence? (Regular/Vip) ");
+        String dataInicio = inputTeclado.validaPadraoData("Quando voce iniciara a hospedagem? (DD/MM/YYYY) ");
+        String dataFim = inputTeclado.validaPadraoData("Quando voce finalizara a hospedagem? (DD/MM/YYYY) ");
+        inputTeclado.comparaDatas(dataInicio, dataFim);
 
         TipoDeCliente tipoDeCliente = TipoDeCliente.valueOf(tipoCliente);
 

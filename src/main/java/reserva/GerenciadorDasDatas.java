@@ -10,11 +10,12 @@ import java.util.List;
 
 public class GerenciadorDasDatas {
 	
-	
+	public final String datePattern = "dd/MM/yyyy";
+
 	public Date stringParaDate(String formato){
 
 		try {
-			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(formato);
+			Date date = new SimpleDateFormat(datePattern).parse(formato);
 			return date;
 		} catch (ParseException e) {
 			e.printStackTrace();
