@@ -23,6 +23,11 @@ public class Hotel {
 		this.precoFimSemanaReward = precoFimSemanaReward;
 	}
 	
+	@Override
+	public String toString() {
+		return this.getNome();
+	}
+	
 	public String getNome() {
 		return nome;
 	}

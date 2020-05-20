@@ -1,34 +1,33 @@
 package reserva;
 
+import reserva.InputTeclado;
+
 import java.util.Date;
 import java.util.List;
+
 public class Main {
 
-	public static void main(String[] args) {
-		
-		String tipoCliente = "";
-		String dataInicio = "";
-		String dataFim = "";
-		
-		InputTeclado inputTeclado = new InputTeclado();
+    public static void main(String[] args) {
 
-		try {
-			tipoCliente = inputTeclado.input("Qual perfil de Cliente voce pertence? (Regular/Vip)", 0);
-			dataInicio = inputTeclado.input("Quando voce iniciara a hospedagem? (DD/MM/YYYY)", 1);
-			dataFim = inputTeclado.input("Quando voce finalizara a hospedagem? (DD/MM/YYYY)", 1);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        String tipoCliente = InputTeclado.validaPerfilCliente("Qual perfil de Cliente voce pertence? (Regular/Vip) ");
+        String dataInicio = InputTeclado.validaPadraoData("Quando voce iniciara a hospedagem? (DD/MM/YYYY) ");
+        String dataFim = InputTeclado.validaPadraoData("Quando voce finalizara a hospedagem? (DD/MM/YYYY) ");
+        InputTeclado.comparaDatas(dataInicio, dataFim);
 
-		TipoDeCliente tipoDeCliente = TipoDeCliente.valueOf(tipoCliente);
-		
-		GerenciadorDasDatas gerenciaDatasEscolhidas = new GerenciadorDasDatas();
-		Date dataInicioHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataInicio);
-		Date dataFimHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataFim);
-		List<Date> periodo = gerenciaDatasEscolhidas.pegarPeriodoAlocacao(dataInicioHospedagem, dataFimHospedagem);
+        TipoDeCliente tipoDeCliente = TipoDeCliente.valueOf(tipoCliente);
 
-		HoteisExistentes hoteisExistentes = new HoteisExistentes();
-	
-	}
+        GerenciadorDasDatas gerenciaDatasEscolhidas = new GerenciadorDasDatas();
+        Date dataInicioHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataInicio);
+        Date dataFimHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataFim);
+        List<Date> periodo = gerenciaDatasEscolhidas.pegarPeriodoAlocacao(dataInicioHospedagem, dataFimHospedagem);
+
+        HoteisExistentes hoteisExistentes = new HoteisExistentes();
+
+        GerenciadorMelhorHotel gerenciadorMelhorHotel = new GerenciadorMelhorHotel();
+        Taxa melhorTaxa = gerenciadorMelhorHotel.pegarMelhorTaxa(tipoDeCliente, periodo, hoteisExistentes.hoteis());
+        System.out.println("O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel());
+        System.out.println("O seu preco ficou em: " + melhorTaxa.getPreco() + "R$");
+
+    }
 
 }
