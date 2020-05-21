@@ -23,7 +23,7 @@ public class GerenciadorMelhorHotel {
 		return menorTaxa;
 	}
 	
-	private Taxa calcularMenorTaxa(List<Taxa> listaDeTaxas) {
+	private static Taxa calcularMenorTaxa(List<Taxa> listaDeTaxas) {
 
 		Taxa menorTaxa = null;
 
@@ -38,7 +38,7 @@ public class GerenciadorMelhorHotel {
 		return menorTaxa;
 	}
 
-	private Taxa calcularTaxaDoHotel(TipoDeCliente tipoDeCliente, List<Date> periodo, Hotel hotel) {
+	private static Taxa calcularTaxaDoHotel(TipoDeCliente tipoDeCliente, List<Date> periodo, Hotel hotel) {
 
 		GerenciadorDasDatas gerenciadorDasDatas = new GerenciadorDasDatas();
 		Double preco = 0d;
