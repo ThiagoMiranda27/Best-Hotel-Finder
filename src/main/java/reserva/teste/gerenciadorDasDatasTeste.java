@@ -19,8 +19,7 @@ public class gerenciadorDasDatasTeste {
 
     @Test
     public void quandoDataForSabadoDeveRetornarTrue() throws ParseException {
-        String formato = "23/05/2020";
-        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(formato);
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("23/05/2020");
 
         Assert.assertEquals(true, gerenciaData.fimDeSemana(date));
 
@@ -28,34 +27,31 @@ public class gerenciadorDasDatasTeste {
 
     @Test
     public void quandoDataForDiaSemanaDeveRetornarFalse() throws ParseException {
-        String formato = "19/05/2020";
-        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(formato);
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("19/05/2020");
 
         Assert.assertEquals(false, gerenciaData.fimDeSemana(date));
 
     }
 
-    @SuppressWarnings("deprecation")
+
     @Test
     public void deveRetornarAsDatasQueFicaraHospedado() throws ParseException {
-        Date dateInicio = new Date(2020, 05, 19);
-        Date dateDia = new Date(2020, 05, 20);
-        Date dateDia2 = new Date(2020, 05, 21);
-        Date dateFim = new Date(2020, 05, 22);
+        Date dateInicio = new SimpleDateFormat("dd/MM/yyyy").parse("19/05/2020");
+        Date dateFim = new SimpleDateFormat("dd/MM/yyyy").parse("22/05/2020");
 
         List<Date> date = new ArrayList<Date>();
 
         date.add(dateInicio);
-        date.add(dateDia);
-        date.add(dateDia2);
+        date.add(new SimpleDateFormat("dd/MM/yyyy").parse("20/05/2020"));
+        date.add(new SimpleDateFormat("dd/MM/yyyy").parse("21/05/2020"));
         date.add(dateFim);
 
         Assert.assertEquals(date, gerenciaData.pegarPeriodoAlocacao(dateInicio, dateFim));
+
     }
 
     @Test
     public void testParaDateFormatoCerto() throws ParseException {
-
         String invalida = "15/10/2015";
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse(invalida);
 
