@@ -45,13 +45,14 @@ public final class InputTeclado {
 		try {
 			date1 = new SimpleDateFormat("dd/MM/yyyy").parse(data);
 			date2 = new SimpleDateFormat("dd/MM/yyyy").parse(outraData);
-			if (date1.before(date2)) {
+			if (date1.before(date2) || date1.equals(date2)) {
 			} else {
 				throw new IllegalArgumentException("Data nao pode ser no dia anterior do inicio da hospedagem");
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	private static String solicitaDados(String mensagem) {
