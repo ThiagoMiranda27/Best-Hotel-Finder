@@ -112,7 +112,7 @@ public class gerenciadorMelhorHotelTeste {
 	}
 
 	@Test
-	public void testeCalcularTaxaDoHotelPlaza120Reais() throws ParseException {
+	public void testeCalcularTaxaDoHotelHilton120Reais() throws ParseException {
 		List<Date> date = new ArrayList<Date>();
 
 		date.add(new SimpleDateFormat("dd/MM/yyyy").parse("23/05/2020"));
@@ -131,7 +131,7 @@ public class gerenciadorMelhorHotelTeste {
 	}
 
 	@Test
-	public void testeCalcularTaxaDoHotelPlaza300Reais() throws ParseException {
+	public void testeCalcularTaxaDoHotelContinental300Reais() throws ParseException {
 		List<Date> date = new ArrayList<Date>();
 
 		date.add(new SimpleDateFormat("dd/MM/yyyy").parse("23/05/2020"));

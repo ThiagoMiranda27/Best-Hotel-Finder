@@ -18,7 +18,7 @@ public class gerenciadorDasDatasTeste {
     GerenciadorDasDatas gerenciaData = new GerenciadorDasDatas();
 
     @Test
-    public void quandoDataForSabadoDeveRetornarTrue() throws ParseException {
+    public void quandoDataForFimDeSemanaDeveRetornarTrue() throws ParseException {
         Date date = new SimpleDateFormat("dd/MM/yyyy").parse("23/05/2020");
 
         Assert.assertEquals(true, gerenciaData.fimDeSemana(date));
