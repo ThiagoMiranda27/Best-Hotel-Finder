@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserActivity">
+
+    <TextView
+        android:id="@+id/txt_tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione o tipo de Cliente:"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@id/rg_cliente"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        ></TextView>
+
+    <RadioGroup
+        android:id="@+id/rg_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_tipo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/data_chegada"
+        android:layout_marginBottom="520dp">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vip"
+            ></RadioButton>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/regular"
+            ></RadioButton>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/data_chegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Qual a data de chegada?"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_cliente" />
+
+    <EditText
+        android:id="@+id/et_data_chegada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Selecione sua Data de Chegada"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/data_saida"
+        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintLeft_toRightOf="@id/data_chegada"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_cliente"
+        app:layout_constraintVertical_bias="0.771"></EditText>
+
+    <TextView
+        android:id="@+id/data_saida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Qual a data de saída?"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/data_chegada" />
+
+    <EditText
+        android:id="@+id/et_data_saida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Selecione sua Data de Saída"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintLeft_toRightOf="@id/data_saida"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_data_chegada"></EditText>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
