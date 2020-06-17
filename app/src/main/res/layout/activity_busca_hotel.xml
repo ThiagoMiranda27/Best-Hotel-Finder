@@ -5,22 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".BuscaHotel">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Best Hotel Finder"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
-        android:text="Voce é?"
+        android:text="Selecione o tipo de Cliente"
         android:textSize="18sp" />
 
     <RadioGroup
@@ -29,26 +28,52 @@
         android:layout_marginTop="10dp">
 
         <RadioButton
-            android:id="@+id/rb_usuario"
+            android:id="@+id/rb_vip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usuario" />
+            android:text="VIP" />
 
         <RadioButton
-            android:id="@+id/rb_admin"
+            android:id="@+id/rb_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Administrador" />
-
-
+            android:text="Regular" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btn_Dados"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Informe a data de Check In"
+        android:textSize="18sp" />
+    <EditText
+        android:id="@+id/et_DateInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Informe a data de Check Out"
+        android:textSize="18sp" />
+    <EditText
+        android:id="@+id/et_DateFim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date" />
+    <Button
+        android:id="@+id/btn_Enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="EnviaBuscaHotel"
         android:text="Enviar"
         android:layout_marginTop="20dp"/>
+
+
 </LinearLayout>
-
-
