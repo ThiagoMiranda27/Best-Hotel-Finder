@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".CadastroHotel">
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp"
         tools:ignore="MissingConstraints">
@@ -40,7 +40,7 @@
                 android:text="Nome do Hotel:"
                 android:textSize="18sp"/>
             <EditText
-                android:id="@+id/edt_nome_hotel"
+                android:id="@+id/et_nomeHotel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"/>
@@ -56,19 +56,19 @@
                 android:layout_marginTop="10dp">
 
                 <RadioButton
-                    android:id="@+id/rbt_estrela3"
+                    android:id="@+id/rb_estrela3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="3 Estrelas" />
 
                 <RadioButton
-                    android:id="@+id/rbt_estrela4"
+                    android:id="@+id/rb_estrela4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="4 Estrelas" />
 
                 <RadioButton
-                    android:id="@+id/rbt_estrela5"
+                    android:id="@+id/rb_estrela5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="5 Estrelas" />
@@ -79,8 +79,8 @@
                 android:layout_marginTop="20dp"
                 android:text="Valor da diária - Segunda à sexta:"
                 android:textSize="18sp"/>
-            <EditText
-                android:id="@+id/edt_valor_semanal"
+                <EditText
+                android:id="@+id/et_valorSemanal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -94,7 +94,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/edt_valor_semanal_fidelidade"
+                android:id="@+id/et_valorSemanalFidelidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -107,7 +107,7 @@
                 android:textSize="18sp"/>
 
             <EditText
-                android:id="@+id/edt_valor_finalsemana"
+                android:id="@+id/et_valorFinalsemana"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -120,13 +120,13 @@
                 android:textSize="18sp"/>
 
             <EditText
-                android:id="@+id/edt_valor_finalsemana_fidelidade"
+                android:id="@+id/et_valorFinalsemanaFidelidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:inputType="number"/>
             <Button
-                android:id="@+id/btm_cadastrar"
+                android:id="@+id/btn_Cadastrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
