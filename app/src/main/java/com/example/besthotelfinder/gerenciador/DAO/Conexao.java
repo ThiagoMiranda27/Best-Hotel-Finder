@@ -17,7 +17,7 @@ public class Conexao extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL(
-                "CREATE TABLE IF NOT EXISTS Hotel ( id bigint(20) NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                "CREATE TABLE IF NOT EXISTS Hotel ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                         "nome VARCHAR(255), classificacao int(2), precoDiaSemanaRegular double(5,2), " +
                         "precoDiaSemanaReward double(5,2), precoFimSemanaRegular double(5,2), precoFimSemanaReward double(5,2));"
         );

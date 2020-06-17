@@ -20,9 +20,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.besthotelfinder.gerenciador.DAO.HotelDAO;
 import com.example.besthotelfinder.gerenciador.GerenciadorDasDatas;
 import com.example.besthotelfinder.gerenciador.GerenciadorMelhorHotel;
 import com.example.besthotelfinder.gerenciador.HoteisExistentes;
+import com.example.besthotelfinder.gerenciador.Hotel;
 import com.example.besthotelfinder.gerenciador.Taxa;
 import com.example.besthotelfinder.gerenciador.TipoDeCliente;
 
@@ -99,29 +101,36 @@ public class BuscaHotel extends AppCompatActivity {
                 Date dataInicioHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataEntrada);
                 Date dataFimHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataSaida);
                 List<Date> periodo = gerenciaDatasEscolhidas.pegarPeriodoAlocacao(dataInicioHospedagem, dataFimHospedagem);
+                List<Hotel> lista;
+                HotelDAO hotelDAO = new HotelDAO();
 
-                busca();
+                lista = hotelDAO.getHotel(getApplicationContext());
+                System.out.println(lista.toString());
 
 
-                HoteisExistentes hoteisExistentes = new HoteisExistentes();
+//                busca();
 
-                GerenciadorMelhorHotel gerenciadorMelhorHotel = new GerenciadorMelhorHotel();
-                Taxa melhorTaxa = gerenciadorMelhorHotel.pegarMelhorTaxa(tipoCliente, periodo, hoteisExistentes.hoteis());
-                System.out.println("O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel());
-                System.out.println("O seu preco ficou em: " + melhorTaxa.getPreco() + "R$");
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(BuscaHotel.this);
+//                HoteisExistentes hoteisExistentes = new HoteisExistentes();
+//
+//                GerenciadorMelhorHotel gerenciadorMelhorHotel = new GerenciadorMelhorHotel();
+//                Taxa melhorTaxa = gerenciadorMelhorHotel.pegarMelhorTaxa(tipoCliente, periodo, hoteisExistentes.hoteis());
+//                System.out.println("O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel());
+//                System.out.println("O seu preco ficou em: " + melhorTaxa.getPreco() + "R$");
+//
+//                AlertDialog.Builder alert = new AlertDialog.Builder(BuscaHotel.this);
+//
+//                alert.setTitle("Busca Hotel Banco");
+//
+//                alert.setMessage("");
 
-                alert.setTitle("Busca Hotel Banco");
-
-                alert.setMessage("");
 
 //                alert.setTitle("Resultado da Procura");
 //                String message = "O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel() + "\n" +
 //                        "O seu preco ficou em: " + melhorTaxa.getPreco() + "R$";
 //                alert.setMessage(message);
-                alerta = alert.create();
-                alerta.show();
+//                alerta = alert.create();
+//                alerta.show();
 
 
             }

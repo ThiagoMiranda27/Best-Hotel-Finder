@@ -101,7 +101,7 @@ public class CadastroHotel extends AppCompatActivity {
                 Toast.makeText(CadastroHotel.this, "Voley ERROR: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }) {
-            
+
             public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 String clas = String.valueOf(classificacao);
