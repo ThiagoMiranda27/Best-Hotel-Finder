@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -16,6 +18,9 @@ public class BuscaHotel extends AppCompatActivity {
 
     Calendar calendar_dataAtual;
     TextView tv_DataAtual;
+    EditText et_DateInicio, et_DateFim;
+    Button btn_Enviar;
+    RadioButton rb_vip, rb_regular;
 
     static final int DATE_ID = 0;
 
@@ -24,26 +29,31 @@ public class BuscaHotel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busca_hotel);
 
+        rb_vip = findViewById(R.id.rb_vip);
+        rb_regular = findViewById(R.id.rb_regular);
+
+        et_DateInicio = findViewById(R.id.et_DateInicio);
+
         final Calendar dataInicio;
         final Calendar dataFim;
-        Button btnEntrada = (Button) findViewById(R.id.btn_DataEntrada);
-        Button btnSaida = (Button) findViewById(R.id.btn_DataSaida);
+//        Button btnEntrada = (Button) findViewById(R.id.btn_DataEntrada);
+//        Button btnSaida = (Button) findViewById(R.id.btn_DataSaida);
         final TextView tv_Entrada = (TextView) findViewById(R.id.tv_dataEntrada);
         final TextView tv_Saida = (TextView) findViewById(R.id.tv_dataSaida);
 
         dataInicio = Calendar.getInstance();
 
-        btnEntrada.setOnClickListener(new View.OnClickListener() {
+        et_DateInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 mostrarData(tv_Entrada, dataInicio);
             }
-        });
+        };
 
         dataFim = Calendar.getInstance();
 
-        btnSaida.setOnClickListener(new View.OnClickListener() {
+        et_DateFim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mostrarData(tv_Saida, dataFim);
