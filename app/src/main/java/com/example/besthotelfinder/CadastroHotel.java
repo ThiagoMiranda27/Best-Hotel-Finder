@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.besthotelfinder.gerenciador.DAO.HotelDAO;
 import com.example.besthotelfinder.gerenciador.Hotel;
 
 import org.json.JSONException;
@@ -54,15 +55,15 @@ public class CadastroHotel extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 if(rbEstrela3.isChecked()){
                     classificacao = 3;
                 }else if(rbEstrela4.isChecked()){
                     classificacao = 4;
                 }else if(rbEstrela5.isChecked()){
                     classificacao = 5;
+                }else{
+                    System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ----  \n\n  Selecione a classificacao do Hotel");
                 }
-
 
                 ValorSemanal = Double.parseDouble(etValorSemanal.getText().toString());
                 ValorSemanalFidelidade = Double.parseDouble(etValorSemanalFidelidade.getText().toString());
@@ -71,7 +72,11 @@ public class CadastroHotel extends AppCompatActivity {
 
                 Hotel hotel = new Hotel(etNomeHotel.getText().toString(), classificacao, ValorSemanal,
                                         ValorSemanalFidelidade, ValorFinalSemana, ValorFinalSemanaFidelidade);
-                Regist();
+                HotelDAO.inserir(getApplicationContext(), hotel);
+
+                finish();
+
+                //Regist();
 
             }
         });
@@ -98,7 +103,6 @@ public class CadastroHotel extends AppCompatActivity {
         }) {
             public Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-
                 String clas = String.valueOf(classificacao);
                 String precoDiaSemanaRegular = String.valueOf(ValorSemanal);
                 String precoDiaSemanaReward = String.valueOf(ValorSemanalFidelidade);
@@ -111,7 +115,6 @@ public class CadastroHotel extends AppCompatActivity {
                 params.put("precoDiaSemanaReward", precoDiaSemanaReward);
                 params.put("precoFimSemanaRegular", precoFimSemanaRegular);
                 params.put("precoFimSemanaReward", precoFimSemanaReward);
-
                 return params;
             }
 

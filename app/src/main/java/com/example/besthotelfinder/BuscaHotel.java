@@ -11,26 +11,39 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.besthotelfinder.gerenciador.GerenciadorDasDatas;
 import com.example.besthotelfinder.gerenciador.GerenciadorMelhorHotel;
 import com.example.besthotelfinder.gerenciador.HoteisExistentes;
 import com.example.besthotelfinder.gerenciador.Taxa;
 import com.example.besthotelfinder.gerenciador.TipoDeCliente;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BuscaHotel extends AppCompatActivity {
     AlertDialog alerta;
     Calendar calendar_dataAtual;
     TextView tv_DataAtual;
-    Button btnEnviar;
     RadioButton rb_vip, rb_regular;
     String dataEntrada, dataSaida;
     TipoDeCliente tipoCliente;
     static final int DATE_ID = 0;
+    private static String URL_REGIST = "http://192.168.64.3/besthotel/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +100,9 @@ public class BuscaHotel extends AppCompatActivity {
                 Date dataFimHospedagem = gerenciaDatasEscolhidas.stringParaDate(dataSaida);
                 List<Date> periodo = gerenciaDatasEscolhidas.pegarPeriodoAlocacao(dataInicioHospedagem, dataFimHospedagem);
 
+                busca();
+
+
                 HoteisExistentes hoteisExistentes = new HoteisExistentes();
 
                 GerenciadorMelhorHotel gerenciadorMelhorHotel = new GerenciadorMelhorHotel();
@@ -94,14 +110,16 @@ public class BuscaHotel extends AppCompatActivity {
                 System.out.println("O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel());
                 System.out.println("O seu preco ficou em: " + melhorTaxa.getPreco() + "R$");
 
-
-
                 AlertDialog.Builder alert = new AlertDialog.Builder(BuscaHotel.this);
 
-                alert.setTitle("Resultado da Procura");
-                String message = "O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel() + "\n" +
-                                 "O seu preco ficou em: " + melhorTaxa.getPreco() + "R$";
-                alert.setMessage(message);
+                alert.setTitle("Busca Hotel Banco");
+
+                alert.setMessage("");
+
+//                alert.setTitle("Resultado da Procura");
+//                String message = "O Hotel mais barato encontrado foi: " + melhorTaxa.getHotel() + "\n" +
+//                        "O seu preco ficou em: " + melhorTaxa.getPreco() + "R$";
+//                alert.setMessage(message);
                 alerta = alert.create();
                 alerta.show();
 
@@ -109,6 +127,7 @@ public class BuscaHotel extends AppCompatActivity {
             }
         });
     }
+
 
     public void atualizar(TextView data, Calendar calendar){
         data.setText(new StringBuilder().append(calendar.get(Calendar.DAY_OF_MONTH)).append("/")
@@ -158,5 +177,49 @@ public class BuscaHotel extends AppCompatActivity {
                 ((DatePickerDialog) dialog).updateDate(calendar_dataAtual.get(Calendar.YEAR), calendar_dataAtual.get(Calendar.MONTH), calendar_dataAtual.get(Calendar.DAY_OF_MONTH));
                 break;
         }
+    }
+
+    public void busca(){
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_REGIST, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    Toast.makeText(BuscaHotel.this, "Feito", Toast.LENGTH_LONG).show();
+                } catch (JSONException e) {
+                    Toast.makeText(BuscaHotel.this, "Erro" + e.getMessage(), Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(BuscaHotel.this, "Voley ERROR: " + error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+            public Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.get("nome");
+                params.get("classificacao");
+                params.get("precoDiaSemanaRegular");
+                params.get("precoDiaSemanaReward");
+                params.get("precoFimSemanaRegular");
+                params.get("precoFimSemanaReward");
+
+//                params.put("nome", etNomeHotel.getText().toString());
+//                params.put("classificacao", clas);
+//                params.put("precoDiaSemanaRegular", precoDiaSemanaRegular);
+//                params.put("precoDiaSemanaReward", precoDiaSemanaReward);
+//                params.put("precoFimSemanaRegular", precoFimSemanaRegular);
+//                params.put("precoFimSemanaReward", precoFimSemanaReward);
+                return params;
+            }
+
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(BuscaHotel.this);
+        requestQueue.add(stringRequest);
     }
 }

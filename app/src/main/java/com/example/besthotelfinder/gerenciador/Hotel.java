@@ -1,7 +1,9 @@
 package com.example.besthotelfinder.gerenciador;
 
 public class Hotel {
-	
+	private int id;
+
+
 	private String nome;
 	private int classificacao;
 	private double precoDiaSemanaRegular;
@@ -64,5 +66,11 @@ public class Hotel {
 	public void setPrecoFimSemanaReward(double precoFimSemanaReward) {
 		this.precoFimSemanaReward = precoFimSemanaReward;
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }
