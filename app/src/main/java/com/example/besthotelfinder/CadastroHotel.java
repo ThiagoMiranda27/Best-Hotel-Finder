@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,9 +32,7 @@ public class CadastroHotel extends AppCompatActivity {
     EditText etNomeHotel, etValorSemanal, etValorSemanalFidelidade, etValorFinalSemana, etValorFinalSemanaFidelidade;
     RadioButton rbEstrela3, rbEstrela4, rbEstrela5;
     private static String URL_REGIST = "http://192.168.0.23/besthotel/register.php";
-
     int classificacao = 0;
-
     double ValorSemanal, ValorSemanalFidelidade, ValorFinalSemana, ValorFinalSemanaFidelidade;
 
     @Override
@@ -67,7 +66,7 @@ public class CadastroHotel extends AppCompatActivity {
                                     dialog.cancel();
                                 }
 
-                    });
+                            });
                     alert.show();
 
 
@@ -79,8 +78,6 @@ public class CadastroHotel extends AppCompatActivity {
                         classificacao = 4;
                     } else if (rbEstrela5.isChecked()) {
                         classificacao = 5;
-                    } else {
-                        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ----  \n\n  Selecione a classificacao do Hotel");
                     }
 
                     ValorSemanal = Double.parseDouble(etValorSemanal.getText().toString());
@@ -93,7 +90,7 @@ public class CadastroHotel extends AppCompatActivity {
 
                 }
             }
-            });
+        });
 
     }
 

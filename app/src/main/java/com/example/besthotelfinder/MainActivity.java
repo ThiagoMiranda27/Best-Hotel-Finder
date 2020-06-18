@@ -30,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
         if (rb_usuario.isChecked()){
             Intent busca = new Intent(getApplicationContext(), BuscaHotel.class);
             startActivity(busca);
+
         }
         if (rb_admin.isChecked()){
             Intent cadastro = new Intent(getApplicationContext(), CadastroHotel.class);
             startActivity(cadastro);
         }
+
 
     }
 
