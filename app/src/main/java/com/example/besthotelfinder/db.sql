@@ -10,3 +10,7 @@ CREATE TABLE Hotel (
   precoFimSemanaReward double(5,2)
 
   );
+
+INSERT INTO `hotel` (`id`, `nome`, `classificacao`, `precoDiaSemanaRegular`, `precoDiaSemanaReward`, `precoFimSemanaRegular`, `precoFimSemanaReward`) VALUES (NULL, 'Plaza', '3', '110', '80', '90', '80');
+INSERT INTO `hotel` (`id`, `nome`, `classificacao`, `precoDiaSemanaRegular`, `precoDiaSemanaReward`, `precoFimSemanaRegular`, `precoFimSemanaReward`) VALUES (NULL, 'Hilton', '4', '160', '110', '60', '50');
+INSERT INTO `hotel` (`id`, `nome`, `classificacao`, `precoDiaSemanaRegular`, `precoDiaSemanaReward`, `precoFimSemanaRegular`, `precoFimSemanaReward`) VALUES (NULL, 'Continental', '5', '220', '100', '150', '40');

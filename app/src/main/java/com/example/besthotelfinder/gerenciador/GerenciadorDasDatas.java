@@ -10,21 +10,29 @@ import java.util.List;
 
 public class GerenciadorDasDatas {
 
-
-	public void comparaDatas(String data, String outraData) {
+	public Boolean comparaDatas(String data, String outraData) {
 		Date date1 = null;
 		Date date2 = null;
+
+
+
 		try {
 			date1 = new SimpleDateFormat("dd/MM/yyyy").parse(data);
 			date2 = new SimpleDateFormat("dd/MM/yyyy").parse(outraData);
 			if (date1.before(date2) || date1.equals(date2)) {
+				return false;
+
 			} else {
-				throw new IllegalArgumentException("Data nao pode ser no dia anterior do inicio da hospedagem");
+
+
+
+
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 
+		return true;
 	}
 
 	public Date stringParaDate(String formato){
